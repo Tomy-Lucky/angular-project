@@ -1,1 +1,54 @@
-<p>diary works!</p>
+<div class="container">
+  <br>
+  <h4>
+    <mark>Internship diary app</mark>
+  </h4>
+  <div class="alert alert-success">
+    Description of work
+    <ul>
+      <li>Company name: <strong>{{internship.companyName}}</strong></li>
+      <li>Short info: <strong>{{internship.shortInfo}}</strong></li>
+      <li>Type of work: <strong>{{internship.typeOfWork}}</strong></li>
+      <li>Period: <strong>{{internship.periodInDays}}</strong> days</li>
+    </ul>
+  </div>
+
+  <button class="btn btn-danger" (click)="showEdit()">Edit description</button>
+  <div><br></div>
+  <form *ngIf="isEditDescription">
+    <div class="form-group">
+      <input type="text" placeholder="Company name"
+             class="form-control" [(ngModel)]="internship.companyName" name="name"><br>
+      <input type="text" placeholder="Short info"
+             class="form-control" [(ngModel)]="internship.shortInfo" name="shortInfo"><br>
+      <input type="text" placeholder="Type of work"
+             class="form-control" [(ngModel)]="internship.typeOfWork" name="typeOfWork"><br>
+      <input type="text" placeholder="Period"
+             class="form-control" [(ngModel)]="internship.periodInDays" name="periodInDays">
+    </div>
+  </form>
+
+  <h5>Choose type of work</h5>
+  <button class="btn btn-danger" (click)="selectTypeOfWork('Project')">Project</button>
+  <button class="btn btn-success" (click)="selectTypeOfWork('Course')">Course</button>
+  <button class="btn btn-info" (click)="selectTypeOfWork('Tasks')">Tasks</button>
+  <div><br></div>
+
+  <form (submit)="addOption(option.value)">
+    <div class="form-group">
+      <label for="option"></label>
+      <input type="text" id="option" placeholder="Type something" class="form-control" #option>
+      <br>
+      <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+  </form>
+
+  <h5>Main perspectives</h5>
+  <div class="alert alert-warning">
+    <ul>
+      <li *ngFor="let opt of options">{{opt}}
+        <button class="btn btn-warning btn-sm" (click)="deleteOption(opt)">x</button>
+      </li>
+    </ul>
+  </div>
+</div>
