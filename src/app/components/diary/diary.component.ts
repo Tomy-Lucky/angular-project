@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Internship} from '../../services/internship';
+import {DiaryService} from '../../services/diary/diary.service';
 
 @Component({
   selector: 'app-diary',
@@ -12,48 +14,33 @@ export class DiaryComponent implements OnInit {
   options: string[];
   isEditDescription: boolean;
 
-  constructor() {
+  constructor(
+    private diaryService: DiaryService
+  ) {
     this.studentName = 'Student';
-    this.internship = {
-      companyName: 'Kolesa',
-      shortInfo: 'learn to develop backend application',
-      typeOfWork: 'Project',
-      periodInDays: 30
-    };
-    this.options = ['skills improvement', 'learn new backend topics', 'maintain real world app'];
     this.isEditDescription = false;
+    this.internship = this.diaryService.getInternshipDescription();
+    this.options = this.diaryService.getPerspectivesOptions();
   }
 
   ngOnInit(): void {
-
+    this.internship = this.diaryService.getInternshipDescription();
+    this.options = this.diaryService.getPerspectivesOptions();
   }
 
   selectTypeOfWork(typeOfWork: string): void {
-    this.internship.typeOfWork = typeOfWork;
+    this.diaryService.selectTypeOfWork(typeOfWork);
   }
 
   addOption(option: string): boolean {
-    this.options.unshift(option);
-    return false;
+    return this.diaryService.addOption(option);
   }
 
   deleteOption(option: string): void {
-    for (let i = 0; i < this.options.length; i++) {
-      if (this.options[i] === option) {
-        this.options.splice(i, 1);
-        break;
-      }
-    }
+    this.diaryService.deleteOption(option);
   }
 
   showEdit(): void {
     this.isEditDescription = !this.isEditDescription;
   }
-}
-
-interface Internship {
-  companyName: string;
-  shortInfo: string;
-  typeOfWork: string;
-  periodInDays: number;
 }
