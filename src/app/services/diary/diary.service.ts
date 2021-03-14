@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Internship} from '../internship';
+import {InternshipDescription} from '../internshipDescription';
 import {LogService} from '../log/log.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import {LogService} from '../log/log.service';
 })
 export class DiaryService {
 
-  private readonly internship: Internship;
+  private readonly internship: InternshipDescription;
   private readonly options: string[];
 
   constructor(
@@ -22,7 +22,7 @@ export class DiaryService {
     this.options = ['skills improvement', 'learn new angular topics', 'maintain real world app'];
   }
 
-  getInternshipDescription(): Internship {
+  getInternshipDescription(): InternshipDescription {
     return this.internship;
   }
 

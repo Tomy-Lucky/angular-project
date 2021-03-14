@@ -1,38 +1,27 @@
-<div class="container">
+<div class="container" style="padding-bottom: 100px">
   <br>
   <h1>
     <mark>Internship diary app</mark>
   </h1>
-  <div class="alert alert-success">
-    Description of work
-    <ul>
-      <li>Company name: <strong>{{internship.companyName | uppercase}}</strong></li>
-      <li>Short info: <strong>{{internship.shortInfo}}</strong></li>
-      <li>Type of work: <strong>{{internship.typeOfWork}}</strong></li>
-      <li>Period: <strong>{{internship.periodInDays | periodCalculation}}</strong></li>
-    </ul>
-  </div>
+
+  <app-work-description [internshipDescription]="internshipDescription"></app-work-description>
 
   <button class="btn btn-danger" (click)="showEdit()">Edit description</button>
   <div><br></div>
   <form *ngIf="isEditDescription">
     <div class="form-group">
       <input type="text" placeholder="Company name"
-             class="form-control" [(ngModel)]="internship.companyName" name="name"><br>
+             class="form-control" [(ngModel)]="internshipDescription.companyName" name="name"><br>
       <input type="text" placeholder="Short info"
-             class="form-control" [(ngModel)]="internship.shortInfo" name="shortInfo"><br>
+             class="form-control" [(ngModel)]="internshipDescription.shortInfo" name="shortInfo"><br>
       <input type="text" placeholder="Type of work"
-             class="form-control" [(ngModel)]="internship.typeOfWork" name="typeOfWork"><br>
+             class="form-control" [(ngModel)]="internshipDescription.typeOfWork" name="typeOfWork"><br>
       <input type="text" placeholder="Period"
-             class="form-control" [(ngModel)]="internship.periodInDays" name="periodInDays">
+             class="form-control" [(ngModel)]="internshipDescription.periodInDays" name="periodInDays">
     </div>
   </form>
 
-  <h2>Choose type of work</h2>
-  <button class="btn btn-danger" (click)="selectTypeOfWork('Project')">Project</button>
-  <button class="btn btn-success" (click)="selectTypeOfWork('Course')">Course</button>
-  <button class="btn btn-info" (click)="selectTypeOfWork('Tasks')">Tasks</button>
-  <div><br></div>
+  <app-type-of-work (typeOfWorkEmitter)="selectTypeOfWork($event)"></app-type-of-work>
 
   <form (submit)="addOption(option.value)">
     <div class="form-group">

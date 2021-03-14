@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Internship} from '../../services/internship';
+import {InternshipDescription} from '../../services/internshipDescription';
 import {DiaryService} from '../../services/diary/diary.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {DiaryService} from '../../services/diary/diary.service';
 export class DiaryComponent implements OnInit {
 
   studentName: string;
-  internship: Internship;
+  internshipDescription: InternshipDescription;
   options: string[];
   isEditDescription: boolean;
 
@@ -19,12 +19,12 @@ export class DiaryComponent implements OnInit {
   ) {
     this.studentName = 'Student';
     this.isEditDescription = false;
-    this.internship = this.diaryService.getInternshipDescription();
+    this.internshipDescription = this.diaryService.getInternshipDescription();
     this.options = this.diaryService.getPerspectivesOptions();
   }
 
   ngOnInit(): void {
-    this.internship = this.diaryService.getInternshipDescription();
+    this.internshipDescription = this.diaryService.getInternshipDescription();
     this.options = this.diaryService.getPerspectivesOptions();
   }
 

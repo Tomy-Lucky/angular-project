@@ -1,4 +1,4 @@
-export class Internship {
+export class InternshipDescription {
   companyName!: string;
   shortInfo!: string;
   typeOfWork!: string;

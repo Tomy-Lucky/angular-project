@@ -15,6 +15,8 @@ import {HeaderComponent} from './components/header/header.component';
 import {NotesComponent} from './components/notes/notes.component';
 import {PeriodCalculationPipe} from './pipes/period-calculation/period-calculation.pipe';
 import {FooterComponent} from './components/footer/footer.component';
+import {TypeOfWorkComponent} from './components/diary/type-of-work/type-of-work.component';
+import {WorkDescriptionComponent} from './components/diary/work-description/work-description.component';
 
 const appRoutes: Routes = [
   {path: '', component: DiaryComponent},
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     NotesComponent,
     PeriodCalculationPipe,
-    FooterComponent
+    FooterComponent,
+    TypeOfWorkComponent,
+    WorkDescriptionComponent
   ],
   imports: [
     BrowserModule,
