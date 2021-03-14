@@ -1,8 +1,8 @@
 <div class="container">
   <br>
-  <h4>
+  <h2>
     <mark>Internship diary app</mark>
-  </h4>
+  </h2>
   <div class="alert alert-success">
     Description of work
     <ul>
@@ -28,7 +28,7 @@
     </div>
   </form>
 
-  <h5>Choose type of work</h5>
+  <h3>Choose type of work</h3>
   <button class="btn btn-danger" (click)="selectTypeOfWork('Project')">Project</button>
   <button class="btn btn-success" (click)="selectTypeOfWork('Course')">Course</button>
   <button class="btn btn-info" (click)="selectTypeOfWork('Tasks')">Tasks</button>
@@ -43,7 +43,7 @@
     </div>
   </form>
 
-  <h5>Main perspectives</h5>
+  <h3>Main perspectives</h3>
   <div class="alert alert-warning">
     <ul>
       <li *ngFor="let opt of options">{{opt}}

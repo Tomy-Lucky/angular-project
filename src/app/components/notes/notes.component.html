@@ -1,0 +1,20 @@
+<div class="container">
+  <br>
+  <h2>All notes</h2>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let note of notes" style="margin-bottom: 15px">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{note.taskDescription}}</h2>
+          <p class="card-text">{{note.date | date}}</p>
+          <button class="btn btn-warning btn-sm" (click)="deleteNote(note)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
