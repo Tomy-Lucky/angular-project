@@ -17,7 +17,7 @@ export class NoteComponent implements OnInit {
   ) {
   }
 
-  onNoClick(): void {
+  cancelNote(): void {
     this.dialogRef.close();
   }
 
