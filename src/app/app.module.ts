@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './components/header/header.component';
 import {NotesComponent} from './components/notes/notes.component';
+import { PeriodCalculationPipe } from './pipes/period-calculation/period-calculation.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: DiaryComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     ContactsComponent,
     NoteComponent,
     HeaderComponent,
-    NotesComponent
+    NotesComponent,
+    PeriodCalculationPipe
   ],
   imports: [
     BrowserModule,

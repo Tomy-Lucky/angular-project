@@ -6,10 +6,10 @@
   <div class="alert alert-success">
     Description of work
     <ul>
-      <li>Company name: <strong>{{internship.companyName}}</strong></li>
+      <li>Company name: <strong>{{internship.companyName | uppercase}}</strong></li>
       <li>Short info: <strong>{{internship.shortInfo}}</strong></li>
       <li>Type of work: <strong>{{internship.typeOfWork}}</strong></li>
-      <li>Period: <strong>{{internship.periodInDays}}</strong> days</li>
+      <li>Period: <strong>{{internship.periodInDays | periodCalculation}}</strong></li>
     </ul>
   </div>
 

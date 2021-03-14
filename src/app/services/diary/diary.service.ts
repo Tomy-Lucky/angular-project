@@ -15,11 +15,11 @@ export class DiaryService {
   ) {
     this.internship = {
       companyName: 'Kolesa',
-      shortInfo: 'learn to develop backend application',
+      shortInfo: 'learn to develop angular frontend applications',
       typeOfWork: 'Project',
       periodInDays: 30
     };
-    this.options = ['skills improvement', 'learn new backend topics', 'maintain real world app'];
+    this.options = ['skills improvement', 'learn new angular topics', 'maintain real world app'];
   }
 
   getInternshipDescription(): Internship {
