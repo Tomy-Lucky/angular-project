@@ -1,0 +1,24 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "taskDescription": "Start to learn angular basics",
+      "date": "2021-03-01"
+    },
+    {
+      "id": 2,
+      "taskDescription": "Created first components",
+      "date": "2021-03-05"
+    },
+    {
+      "id": 3,
+      "taskDescription": "Use data binding",
+      "date": "2021-03-07"
+    },
+    {
+      "id": 4,
+      "taskDescription": "Try to use pipes and directives",
+      "date": "2021-03-10"
+    }
+  ]
+}

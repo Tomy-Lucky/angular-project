@@ -17,13 +17,15 @@ import {PeriodCalculationPipe} from './pipes/period-calculation/period-calculati
 import {FooterComponent} from './components/footer/footer.component';
 import {TypeOfWorkComponent} from './components/diary/type-of-work/type-of-work.component';
 import {WorkDescriptionComponent} from './components/diary/work-description/work-description.component';
+import { AddNoteComponent } from './components/add-note/add-note.component';
+import {AddNoteFormDeactivateGuard} from './guards/add-note-form-deactivate.guard';
 
 const appRoutes: Routes = [
   {path: '', component: DiaryComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'notes', component: NotesComponent}
+  {path: 'notes', component: NotesComponent},
+  {path: 'add-note', component: AddNoteComponent, canDeactivate: [AddNoteFormDeactivateGuard]}
 ];
-
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     PeriodCalculationPipe,
     FooterComponent,
     TypeOfWorkComponent,
-    WorkDescriptionComponent
+    WorkDescriptionComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

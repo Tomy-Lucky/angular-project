@@ -1,0 +1,15 @@
+<div class="container" style="padding-bottom: 100px">
+  <h1>
+    <mark>What task did you complete?</mark>
+  </h1>
+
+  <form (submit)="saveNote(note)">
+    <div class="form-group">
+      <input type="text" placeholder="Task description"
+             class="form-control" [(ngModel)]="note.taskDescription" name="task description"><br>
+      <input type="date" placeholder="Date"
+             class="form-control" [(ngModel)]="note.date" name="date"><br>
+      <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+  </form>
+</div>
