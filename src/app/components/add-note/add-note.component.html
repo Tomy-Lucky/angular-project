@@ -1,14 +1,23 @@
-<div class="container" style="padding-bottom: 100px">
+<div class="container" style="padding-bottom: 100px" ng-app>
   <h1>
     <mark>What task did you complete?</mark>
   </h1>
 
-  <form (submit)="saveNote(note)">
+  <form (submit)="saveNote(note)" #myForm="ngForm">
     <div class="form-group">
-      <input type="text" placeholder="Task description"
-             class="form-control" [(ngModel)]="note.taskDescription" name="task description"><br>
+      <input type="text" class="form-control" id="task" placeholder="Task description"
+             [(ngModel)]="note.taskDescription" name="task" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Task description is required
+      </div>
+      <br>
+
       <input type="date" placeholder="Date"
-             class="form-control" [(ngModel)]="note.date" name="date"><br>
+             class="form-control" [(ngModel)]="note.date" name="date" #date="ngModel" required>
+      <br>
+      <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
+        Date is required
+      </div>
       <button type="submit" class="btn btn-outline-success">Add</button>
     </div>
   </form>

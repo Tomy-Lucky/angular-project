@@ -8,16 +8,34 @@
 
   <button class="btn btn-danger" (click)="showEdit()">Edit description</button>
   <div><br></div>
-  <form *ngIf="isEditDescription">
+  <form *ngIf="isEditDescription" #myForm="ngForm">
     <div class="form-group">
       <input type="text" placeholder="Company name"
-             class="form-control" [(ngModel)]="internshipDescription.companyName" name="name"><br>
+             class="form-control" [(ngModel)]="internshipDescription.companyName" name="name" #companyName=ngModel required>
+      <div [hidden]="companyName.valid || companyName.pristine" class="alert alert-danger">
+        Company name is required
+      </div>
+      <br>
+
       <input type="text" placeholder="Short info"
-             class="form-control" [(ngModel)]="internshipDescription.shortInfo" name="shortInfo"><br>
+             class="form-control" [(ngModel)]="internshipDescription.shortInfo" name="shortInfo" #shortInfo=ngModel required>
+      <div [hidden]="shortInfo.valid || shortInfo.pristine" class="alert alert-danger">
+        Short Info is required
+      </div>
+      <br>
+
       <input type="text" placeholder="Type of work"
-             class="form-control" [(ngModel)]="internshipDescription.typeOfWork" name="typeOfWork"><br>
+             class="form-control" [(ngModel)]="internshipDescription.typeOfWork" name="typeOfWork" #typeOfWork=ngModel required>
+      <div [hidden]="typeOfWork.valid || typeOfWork.pristine" class="alert alert-danger">
+        Type of work is required
+      </div>
+      <br>
+
       <input type="text" placeholder="Period"
-             class="form-control" [(ngModel)]="internshipDescription.periodInDays" name="periodInDays">
+             class="form-control" [(ngModel)]="internshipDescription.periodInDays" name="periodInDays" #period=ngModel required>
+      <div [hidden]="period.valid || period.pristine" class="alert alert-danger">
+        Period is required
+      </div>
     </div>
   </form>
 

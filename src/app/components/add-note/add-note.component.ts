@@ -23,9 +23,12 @@ export class AddNoteComponent implements OnInit {
   }
 
   saveNote(note: Note): void {
-    if (this.note.taskDescription !== '') {
+    if (this.note.taskDescription.trim() !== '') {
       this.notesService.saveNote(note);
-      this.note.taskDescription = '';
+      this.note = {
+        taskDescription: '',
+        date: new Date()
+      };
     }
   }
 
