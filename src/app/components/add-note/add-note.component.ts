@@ -14,6 +14,7 @@ export class AddNoteComponent implements OnInit {
     private notesService: NoteService
   ) {
     this.note = {
+      id: 1,
       taskDescription: '',
       date: new Date()
     };
@@ -26,6 +27,7 @@ export class AddNoteComponent implements OnInit {
     if (this.note.taskDescription.trim() !== '') {
       this.notesService.saveNote(note);
       this.note = {
+        id: 1,
         taskDescription: '',
         date: new Date()
       };
@@ -35,5 +37,4 @@ export class AddNoteComponent implements OnInit {
   hasUnsavedNote(): boolean {
     return this.note.taskDescription !== '';
   }
-
 }

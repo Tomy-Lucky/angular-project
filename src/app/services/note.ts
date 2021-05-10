@@ -1,4 +1,5 @@
-export class Note{
+export class Note {
+  id!: number;
   taskDescription!: string;
   date!: Date;
 }

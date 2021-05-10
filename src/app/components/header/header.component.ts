@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {
     this.note = {
+      id: 1,
       taskDescription: '',
       date: new Date()
     };

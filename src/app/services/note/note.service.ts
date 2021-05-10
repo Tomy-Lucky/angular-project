@@ -1,53 +1,48 @@
 import {Injectable} from '@angular/core';
 import {Note} from '../note';
 import {LogService} from '../log/log.service';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {DatePipe} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
-  notes: Note[];
+  notesSet: Set<Note>;
 
   constructor(
-    private logService: LogService
+    private logService: LogService,
+    private httpClient: HttpClient,
+    private datePipe: DatePipe
   ) {
-    this.notes = [
-      {
-        taskDescription: 'Start to learn angular basics',
-        date: new Date('2021-03-07')
-      },
-      {
-        taskDescription: 'Created first components',
-        date: new Date('2021-03-10')
-      },
-      {
-        taskDescription: 'Use data binding',
-        date: new Date('2021-03-13')
-      },
-      {
-        taskDescription: 'Try to use pipes and directives',
-        date: new Date('2021-03-14')
-      }
-    ];
+    this.notesSet = new Set<Note>();
   }
 
   getNotes(): Note[] {
-    return this.notes;
+    this.httpClient.get<Note[]>('http://localhost:8080/notes/all').subscribe(
+      value => {
+        this.notesSet = new Set(value);
+      }
+    );
+
+    return [...this.notesSet];
   }
 
   saveNote(note: Note): void {
-    this.notes.push(note);
-    console.log(this.notes);
+    let params = new HttpParams();
+    params = params.append('taskDescription', note.taskDescription);
+    params = params.append('date', String(this.datePipe.transform(note.date, 'yyyy-MM-dd')));
+
+    this.httpClient.get('http://localhost:8080/notes/create-note', {params}).subscribe();
+
+    console.log(note);
   }
 
   deleteNote(note: Note): void {
+    let params = new HttpParams();
+    params = params.append('id', String(note.id));
     this.logService.log('delete note ' + note);
-    for (let i = 0; i < this.notes.length; i++) {
-      if (this.notes[i] === note) {
-        this.notes.splice(i, 1);
-        break;
-      }
-    }
+    this.httpClient.delete('http://localhost:8080/notes/delete-note', {params}).subscribe();
   }
 
 }

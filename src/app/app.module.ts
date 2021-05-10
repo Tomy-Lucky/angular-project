@@ -19,6 +19,8 @@ import {TypeOfWorkComponent} from './components/diary/type-of-work/type-of-work.
 import {WorkDescriptionComponent} from './components/diary/work-description/work-description.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import {AddNoteFormDeactivateGuard} from './guards/add-note-form-deactivate.guard';
+import {HttpClientModule} from '@angular/common/http';
+import {DatePipe} from '@angular/common';
 
 const appRoutes: Routes = [
   {path: '', component: DiaryComponent},
@@ -49,9 +51,11 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
+    DatePipe,
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: {
