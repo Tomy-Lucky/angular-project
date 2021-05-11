@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {InternshipDescription} from '../../../services/internshipDescription';
+import {InternshipDescription} from '../../../entities/internshipDescription';
 
 @Component({
   selector: 'app-work-description',

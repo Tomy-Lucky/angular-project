@@ -17,16 +17,20 @@ import {PeriodCalculationPipe} from './pipes/period-calculation/period-calculati
 import {FooterComponent} from './components/footer/footer.component';
 import {TypeOfWorkComponent} from './components/diary/type-of-work/type-of-work.component';
 import {WorkDescriptionComponent} from './components/diary/work-description/work-description.component';
-import { AddNoteComponent } from './components/add-note/add-note.component';
+import {AddNoteComponent} from './components/add-note/add-note.component';
 import {AddNoteFormDeactivateGuard} from './guards/add-note-form-deactivate.guard';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
+import {ProductsComponent} from './components/products/products.component';
+import {AddProductComponent} from './components/add-product/add-product.component';
 
 const appRoutes: Routes = [
   {path: '', component: DiaryComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'notes', component: NotesComponent},
-  {path: 'add-note', component: AddNoteComponent, canDeactivate: [AddNoteFormDeactivateGuard]}
+  {path: 'add-note', component: AddNoteComponent, canDeactivate: [AddNoteFormDeactivateGuard]},
+  {path: 'products', component: ProductsComponent},
+  {path: 'add-product', component: AddProductComponent}
 ];
 
 @NgModule({
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
     FooterComponent,
     TypeOfWorkComponent,
     WorkDescriptionComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    ProductsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

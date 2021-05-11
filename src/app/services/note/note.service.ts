@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Note} from '../note';
+import {Note} from '../../entities/note';
 import {LogService} from '../log/log.service';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
