@@ -1,0 +1,53 @@
+<div class="container" style="padding-bottom: 100px" ng-app>
+  <h1>
+    <mark>What task did you complete?</mark>
+  </h1>
+
+  <form (submit)="createProduct()" #myForm="ngForm">
+    <div class="form-group">
+      <input type="number" class="form-control" id="id" placeholder="Id"
+             [(ngModel)]="product.id" name="task" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Id is required
+      </div>
+      <br>
+
+      <input type="text" class="form-control" id="name" placeholder="name"
+             [(ngModel)]="product.name" name="name" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Name is required
+      </div>
+      <br>
+
+      <input type="number" class="form-control" id="cost" placeholder="cost"
+             [(ngModel)]="product.cost" name="cost" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Cost is required
+      </div>
+      <br>
+
+      <input type="text" class="form-control" id="category" placeholder="category"
+             [(ngModel)]="product.category" name="category" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Category is required
+      </div>
+      <br>
+
+      <input type="text" class="form-control" id="description" placeholder="description"
+             [(ngModel)]="product.description" name="description" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Description is required
+      </div>
+      <br>
+
+      <input type="number" class="form-control" id="sellerId" placeholder="sellerId"
+             [(ngModel)]="product.sellerId" name="sellerId" #task="ngModel" required>
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        SellerId is required
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+  </form>
+</div>
